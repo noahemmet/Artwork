@@ -10,13 +10,12 @@ let package = Package(
             targets: ["Artwork"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/fluent-sqlite.git", .exact("3.0.0")),
-        .package(path: "../Common")
+		.package(url: "https://github.com/noahemmet/Common", .branch("master"))
     ],
     targets: [
         .target(
             name: "Artwork",
-            dependencies: ["FluentSQLite", "Common"],
+            dependencies: ["Common"],
             path: "Sources"),
         .testTarget(
             name: "ArtworkTests",
