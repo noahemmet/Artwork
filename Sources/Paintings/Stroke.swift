@@ -44,25 +44,6 @@ public struct Stroke: Codable, Hashable {
 	#endif
 }
 
-public enum StrokePathType: String, Codable, CaseIterable {
-    case curved
-    case straight
-    case shape
-    case single
-    public init(_ strokePath: StrokePath) {
-        switch strokePath {
-        case .curved:
-            self = .curved
-        case .straight:
-            self = .straight
-        case .shape:
-            self = .shape
-        case .single:
-            self = .single
-        }
-    }
-}
-
 public protocol StrokePathProtocol: Codable { }
 
 public enum StrokePath: Hashable {
@@ -77,7 +58,7 @@ public enum StrokePath: Hashable {
     public struct Shape: Codable, Hashable, StrokePathProtocol { public let points: [CGPoint] }
     public struct Single: Codable, Hashable, StrokePathProtocol { public let point: CGPoint }
     
-    public init(type strokePathType: StrokePathType, points: [CGPoint]) {
+    public init(type strokePathType: Kind, points: [CGPoint]) {
         switch strokePathType {
         case .curved:
             let path = Path(catmullRomPoints: points, closed: false, alpha: 1.0)
@@ -93,7 +74,7 @@ public enum StrokePath: Hashable {
         }
     }
     
-    public init(type strokePathType: StrokePathType, touchPoints: [TouchPoint]) {
+    public init(type strokePathType: Kind, touchPoints: [TouchPoint]) {
         let points = touchPoints.cgPoints
         self.init(type: strokePathType, points: points)
     }
@@ -108,12 +89,35 @@ public enum StrokePath: Hashable {
     }
 }
 
+extension StrokePath {
+	public enum Kind: String, Codable, CaseIterable {
+		case curved
+		case straight
+		case shape
+		case single
+		
+		public init(_ strokePath: StrokePath) {
+			switch strokePath {
+			case .curved:
+				self = .curved
+			case .straight:
+				self = .straight
+			case .shape:
+				self = .shape
+			case .single:
+				self = .single
+			}
+		}
+	}
+}
+
+
 extension StrokePath: Codable {
     // MARK: Codable
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let base: StrokePathType = try container.decode(StrokePathType.self, forKey: .strokePathType)
+        let base: Kind = try container.decode(Kind.self, forKey: .strokePathType)
         
         switch base {
         case .curved:
@@ -147,7 +151,7 @@ extension StrokePath: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(StrokePathType(self), forKey: .strokePathType)
+        try container.encode(Kind(self), forKey: .strokePathType)
         switch self {
         case .curved(let curved):
             let data = try curved.path.toJSONData(options: [])

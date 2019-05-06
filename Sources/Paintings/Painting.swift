@@ -16,7 +16,7 @@ public struct Painting: ArtType, Codable, Hashable {
     
     public static func random(in frame: CGRect = .init(width: 400, height: 400), strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {
         let strokes: [Stroke] = strokes.map { _ in
-            let strokeType = StrokePathType.allCases.randomElement()!
+            let strokeType = StrokePath.Kind.allCases.randomElement()!
             let points: [CGPoint]
             switch strokeType {
             case .curved:
