@@ -117,13 +117,12 @@ extension StrokePath: Codable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let base: Kind = try container.decode(Kind.self, forKey: .strokePathType)
+        let base: Kind = try container.decode(Kind.self, forKey: ._kind)
         
         switch base {
         case .curved:
-            let data: Data = try container.decode(Data.self, forKey: .curved)
-            let path = try Path(data: data)
-			self = .curved(.init(path: path))
+            let curved: Curved = try container.decode(Curved.self, forKey: .curved)
+			self = .curved(curved)
         case .straight:
             let points: [CGPoint] = try container.decode([CGPoint].self, forKey: .straight)
             self = .straight(.init(p1: points[0], p2: points[1]))
@@ -151,11 +150,10 @@ extension StrokePath: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(Kind(self), forKey: .strokePathType)
+        try container.encode(Kind(self), forKey: ._kind)
         switch self {
         case .curved(let curved):
-            let data = try curved.path.toJSONData(options: [])
-            try container.encode(data, forKey: .curved)
+            try container.encode(curved, forKey: .curved)
         case .straight(let straight):
             let points = [straight.p1, straight.p2]
             try container.encode(points, forKey: .straight)
@@ -167,7 +165,7 @@ extension StrokePath: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case strokePathType
+        case _kind
         case curved
         case straight
         case shape
