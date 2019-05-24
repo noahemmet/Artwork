@@ -73,7 +73,20 @@ public enum StrokePath: Hashable {
             self = .single(.init(point: points[0]))
         }
     }
-    
+	
+	public init?(points: [CGPoint]) {
+		switch points.count {
+		case 0:
+			return nil
+		case 1:
+			self.init(kind: .single, points: points)
+		case 2:
+			self.init(kind: .straight, points: points)
+		default:
+			self.init(kind: .curved, points: points)
+		}
+	}
+
     public init(kind: Kind, touchPoints: [TouchPoint]) {
         let points = touchPoints.cgPoints
         self.init(kind: kind, points: points)
