@@ -58,8 +58,8 @@ public enum StrokePath: Hashable {
     public struct Shape: Codable, Hashable, StrokePathProtocol { public let points: [CGPoint] }
     public struct Single: Codable, Hashable, StrokePathProtocol { public let point: CGPoint }
     
-    public init(type strokePathType: Kind, points: [CGPoint]) {
-        switch strokePathType {
+    public init(kind: Kind, points: [CGPoint]) {
+        switch kind {
         case .curved:
             let path = Path(catmullRomPoints: points, closed: false, alpha: 1.0)
 			self = .curved(.init(path: path))
@@ -74,9 +74,9 @@ public enum StrokePath: Hashable {
         }
     }
     
-    public init(type strokePathType: Kind, touchPoints: [TouchPoint]) {
+    public init(kind: Kind, touchPoints: [TouchPoint]) {
         let points = touchPoints.cgPoints
-        self.init(type: strokePathType, points: points)
+        self.init(kind: kind, points: points)
     }
     
     public var strokePathProtocol: StrokePathProtocol {

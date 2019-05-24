@@ -16,9 +16,9 @@ public struct Painting: ArtType, Codable, Hashable {
     
     public static func random(in frame: CGRect = .init(width: 400, height: 400), strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {
         let strokes: [Stroke] = strokes.map { _ in
-            let strokeType = StrokePath.Kind.allCases.randomElement()!
+            let kind = StrokePath.Kind.allCases.randomElement()!
             let points: [CGPoint]
-            switch strokeType {
+            switch kind {
             case .curved:
                 points = CGPoint.randomPoints(in: frame, range: 0 ..< 20)
             case .shape:
@@ -28,7 +28,7 @@ public struct Painting: ArtType, Codable, Hashable {
             case .straight:
                 points = CGPoint.randomPoints(in: frame, range: 0 ..< 2)
             }
-            let strokePath = StrokePath(type: strokeType, points: points)
+            let strokePath = StrokePath(kind: kind, points: points)
             let thickness = CGFloat.random(in: 1 ..< 10)
             let brush = Brush.fingerBrush(thickness: thickness)
             var swatch = Palette.debug().swatches.randomElement()!
