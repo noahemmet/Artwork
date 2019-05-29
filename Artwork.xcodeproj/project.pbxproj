@@ -17,7 +17,6 @@
 		86341CE721995FA4005BE81A /* PictureFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86341CE621995FA3005BE81A /* PictureFrame.swift */; };
 		865377AE217E5D91005BB6DF /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865377AD217E5D91005BB6DF /* Art.swift */; };
 		866FCD2F21150FA300C5F43F /* BrushBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FCD2E21150FA300C5F43F /* BrushBucket.swift */; };
-		869738FE21D4998D00F5090F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869738FD21D4998D00F5090F /* Common.framework */; };
 		86FF318522822EC200C4DEBF /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318322822EC200C4DEBF /* Path.swift */; };
 		86FF318622822EC200C4DEBF /* Path+CatmullRom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318422822EC200C4DEBF /* Path+CatmullRom.swift */; };
 		86FF318822822ED500C4DEBF /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318722822ED500C4DEBF /* Element.swift */; };
@@ -59,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				869738FE21D4998D00F5090F /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +487,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73QWS7BE59;
-				INFOPLIST_FILE = ArtworkTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,7 +505,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73QWS7BE59;
-				INFOPLIST_FILE = ArtworkTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
