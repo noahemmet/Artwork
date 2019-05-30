@@ -14,7 +14,7 @@ public struct Painting: ArtType, Codable, Hashable {
     public static let defaultSize = CGSize(width: 300, height: 400)
     public static let empty = Painting(strokes: [], size: .zero, backgroundColor: nil)
     
-    public static func random(in frame: CGRect = .init(width: 400, height: 400), strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {
+	public static func random(in frame: CGRect = .init(width: 400, height: 400), swatches: [Swatch], strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {
         let strokes: [Stroke] = strokes.map { _ in
             let kind = StrokePath.Kind.allCases.randomElement()!
             let points: [CGPoint]
@@ -31,12 +31,12 @@ public struct Painting: ArtType, Codable, Hashable {
             let strokePath = StrokePath(kind: kind, points: points)
             let thickness = CGFloat.random(in: 1 ..< 10)
             let brush = Brush.fingerBrush(thickness: thickness)
-            var swatch = Palette.debug().swatches.randomElement()!
+            var swatch = swatches.randomElement()!
             swatch.color.randomize(within: 0.3)
             let stroke = Stroke(strokePath: strokePath, brush: brush, swatch: swatch)
             return stroke
         }
-        let backgroundColor = Palette.debug().swatches.randomElement()!.color
+        let backgroundColor = swatches.randomElement()!.color
         let painting = Painting(strokes: strokes, size: frame.size, pictureFrame: PictureFrame.debug(), backgroundColor: backgroundColor)
         return painting
     }

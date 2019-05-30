@@ -10,13 +10,13 @@
 		8615918921150D9D00816651 /* Artwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8615917F21150D9D00816651 /* Artwork.framework */; };
 		8615918E21150D9D00816651 /* ArtworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615918D21150D9D00816651 /* ArtworkTests.swift */; };
 		8615919021150D9D00816651 /* Artwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 8615918221150D9D00816651 /* Artwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8615919E21150DB700816651 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615919A21150DB600816651 /* Palette.swift */; };
 		8615919F21150DB700816651 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615919B21150DB600816651 /* Painting.swift */; };
 		861591A021150DB700816651 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615919C21150DB600816651 /* Stroke.swift */; };
 		861591A121150DB700816651 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615919D21150DB600816651 /* Brush.swift */; };
 		86341CE721995FA4005BE81A /* PictureFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86341CE621995FA3005BE81A /* PictureFrame.swift */; };
 		865377AE217E5D91005BB6DF /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865377AD217E5D91005BB6DF /* Art.swift */; };
 		866FCD2F21150FA300C5F43F /* BrushBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FCD2E21150FA300C5F43F /* BrushBucket.swift */; };
+		86E29828229F95B8007F8C53 /* Swatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E29827229F95B8007F8C53 /* Swatch.swift */; };
 		86FF318522822EC200C4DEBF /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318322822EC200C4DEBF /* Path.swift */; };
 		86FF318622822EC200C4DEBF /* Path+CatmullRom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318422822EC200C4DEBF /* Path+CatmullRom.swift */; };
 		86FF318822822ED500C4DEBF /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FF318722822ED500C4DEBF /* Element.swift */; };
@@ -39,7 +39,6 @@
 		8615918821150D9D00816651 /* ArtworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8615918D21150D9D00816651 /* ArtworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkTests.swift; sourceTree = "<group>"; };
 		8615918F21150D9D00816651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8615919A21150DB600816651 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		8615919B21150DB600816651 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		8615919C21150DB600816651 /* Stroke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		8615919D21150DB600816651 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		866FCD2E21150FA300C5F43F /* BrushBucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushBucket.swift; sourceTree = "<group>"; };
 		8695E5E72115135C00057A61 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		869738FD21D4998D00F5090F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
+		86E29827229F95B8007F8C53 /* Swatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swatch.swift; sourceTree = "<group>"; };
 		86FF318322822EC200C4DEBF /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		86FF318422822EC200C4DEBF /* Path+CatmullRom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+CatmullRom.swift"; sourceTree = "<group>"; };
 		86FF318722822ED500C4DEBF /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 				86FF318422822EC200C4DEBF /* Path+CatmullRom.swift */,
 				866FCD2E21150FA300C5F43F /* BrushBucket.swift */,
 				86FF318722822ED500C4DEBF /* Element.swift */,
-				8615919A21150DB600816651 /* Palette.swift */,
 				8615919B21150DB600816651 /* Painting.swift */,
+				86E29827229F95B8007F8C53 /* Swatch.swift */,
 				86341CE621995FA3005BE81A /* PictureFrame.swift */,
 				8615919C21150DB600816651 /* Stroke.swift */,
 				8615919D21150DB600816651 /* Brush.swift */,
@@ -245,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8615919E21150DB700816651 /* Palette.swift in Sources */,
 				861591A021150DB700816651 /* Stroke.swift in Sources */,
 				86FF318522822EC200C4DEBF /* Path.swift in Sources */,
 				861591A121150DB700816651 /* Brush.swift in Sources */,
@@ -255,6 +254,7 @@
 				86341CE721995FA4005BE81A /* PictureFrame.swift in Sources */,
 				8615919F21150DB700816651 /* Painting.swift in Sources */,
 				86FF318622822EC200C4DEBF /* Path+CatmullRom.swift in Sources */,
+				86E29828229F95B8007F8C53 /* Swatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
