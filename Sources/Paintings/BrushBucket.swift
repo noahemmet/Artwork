@@ -10,7 +10,7 @@ import Foundation
 
 public struct BrushBucket {
     public static func debug() -> BrushBucket {
-        let pencils = (1..<10).map { Brush.fingerBrush(thickness: CGFloat($0 * 4)) }
+        let pencils = (1..<5).map { Brush.fingerBrush(thickness: CGFloat($0 * 5)) }
         return BrushBucket(brushes: pencils)
     }
     public var brushes: [Brush]
