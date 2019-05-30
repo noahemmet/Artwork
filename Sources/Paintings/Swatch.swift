@@ -11,10 +11,16 @@ import Common
 
 public struct Swatch: Codable, Hashable {
 	public var name: String
-	public var summary: String
+	public var summary: String?
 	public var color: Color
 	
-	public init(name: String, summary: String, color: Color) {
+	public init(name: String, summary: String? = nil, color: Color) {
+		self.name = name
+		self.summary = summary
+		self.color = color
+	}
+	
+	public init(_ name: String, summary: String? = nil, _ color: Color) {
 		self.name = name
 		self.summary = summary
 		self.color = color
