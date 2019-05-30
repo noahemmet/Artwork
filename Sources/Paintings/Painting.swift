@@ -12,7 +12,7 @@ import Common
 public struct Painting: ArtType, Codable, Hashable {
     
     public static let defaultSize = CGSize(width: 300, height: 400)
-    public static let empty = Painting(strokes: [], size: .zero, backgroundColor: nil)
+    public static let empty = Painting(strokes: [], backgroundColor: nil)
     
 	public static func random(in frame: CGRect = .init(width: 400, height: 400), swatches: [Swatch], strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {
         let strokes: [Stroke] = strokes.map { _ in
@@ -37,18 +37,17 @@ public struct Painting: ArtType, Codable, Hashable {
             return stroke
         }
         let backgroundColor = swatches.randomElement()!.color
-        let painting = Painting(strokes: strokes, size: frame.size, pictureFrame: PictureFrame.debug(), backgroundColor: backgroundColor)
+        let painting = Painting(strokes: strokes, pictureFrame: PictureFrame.debug(), backgroundColor: backgroundColor)
         return painting
     }
 	
     public var strokes: [Stroke]
-    public var size: CGSize
+//    public var size: CGSize
     public var pictureFrame: PictureFrame
     public var backgroundColor: Color?
     
-    public init(strokes: [Stroke], size: CGSize, pictureFrame: PictureFrame = .debug(), backgroundColor: Color?) {
+    public init(strokes: [Stroke], pictureFrame: PictureFrame = .debug(), backgroundColor: Color?) {
         self.strokes = strokes
-        self.size = size
         self.pictureFrame = pictureFrame
         self.backgroundColor = backgroundColor
     }
@@ -63,7 +62,7 @@ public struct Painting: ArtType, Codable, Hashable {
 extension Painting: CustomDebugStringConvertible {
     public var debugDescription: String {
         return """
-        Painting(strokes: \(strokes.count), size: \(size))
+        Painting(strokes: \(strokes.count), bounds: \(boundingBox))
         """
     }
 }
