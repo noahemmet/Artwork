@@ -11,7 +11,6 @@ import Common
 
 public struct Painting: ArtType, Codable, Hashable {
     
-    public static let defaultSize = CGSize(width: 300, height: 400)
 	public static let empty = Painting(frame: .zero, strokes: [], backgroundColor: nil)
     
 	public static func random(in frame: CGRect = .init(width: 400, height: 400), swatches: [Swatch], strokes: Range<Int> = 1..<5, curves: Range<Int> = 1..<5) -> Painting {

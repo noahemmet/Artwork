@@ -35,7 +35,7 @@ public struct Stroke: Codable, Hashable {
             return path
         case .single(let single):
             var path = Path()
-            let centerRect = CGRect(center: single.point, size: CGSize(dimension: brush.thickness))
+//            let centerRect = CGRect(center: single.point, size: CGSize(dimension: brush.thickness))
 //            path.addEllipse(in: centerRect)
 			path.addLine(from: single.point, to: single.point) // ??
             return path
