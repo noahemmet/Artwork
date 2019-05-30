@@ -52,6 +52,12 @@ public struct Painting: ArtType, Codable, Hashable {
         self.pictureFrame = pictureFrame
         self.backgroundColor = backgroundColor
     }
+	
+	public var boundingBox: CGRect {
+		let points = strokes.flatMap { $0.path.elements.flatMap { e in e.points }}
+		let boundingBox = points.boundingBox
+		return boundingBox
+	}
 }
 
 extension Painting: CustomDebugStringConvertible {
