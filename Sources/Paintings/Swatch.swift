@@ -20,10 +20,10 @@ public struct Swatch: Codable, Hashable {
 		self.color = color
 	}
 	
-	public init(_ name: String, summary: String? = nil, _ color: Color) {
+	public init(_ name: String, summary: String? = nil, _ hex: String) {
 		self.name = name
 		self.summary = summary
-		self.color = color
+		self.color = try! Color(hex: hex)
 	}
 	
 	public init(color: Color) {
