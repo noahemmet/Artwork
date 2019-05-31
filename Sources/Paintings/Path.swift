@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(CoreGraphics)
+import CoreGraphics
+#endif
 
 public struct Path: Codable, Hashable {
     var elements: [Element]

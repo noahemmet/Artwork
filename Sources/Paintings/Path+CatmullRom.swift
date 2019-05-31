@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(CoreGraphics)
+import CoreGraphics
+#endif
 
 public extension Path {
 	init(catmullRomPoints points: [CGPoint], closed: Bool, alpha: CGFloat) {
