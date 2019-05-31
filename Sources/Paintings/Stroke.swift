@@ -23,7 +23,6 @@ public struct Stroke: Codable, Hashable {
         self.swatch = swatch
     }
 	
-	#if canImport(CoreGraphics)
     public var path: Path {
         switch self.strokePath {
         case .curved(let curved):
@@ -44,7 +43,6 @@ public struct Stroke: Codable, Hashable {
             return path
         }
     }
-	#endif
 }
 
 public protocol StrokePathProtocol: Codable { }
