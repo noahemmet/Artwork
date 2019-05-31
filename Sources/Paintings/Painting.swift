@@ -65,7 +65,7 @@ public struct Painting: ArtType, Codable, Hashable {
 extension Painting: CustomDebugStringConvertible {
     public var debugDescription: String {
         return """
-        Painting(strokes: \(strokes.count), bounds: \("boundingBox"))
+        Painting(strokes: \(strokes.count), bounds: \(boundingBox))
         """
     }
 }
