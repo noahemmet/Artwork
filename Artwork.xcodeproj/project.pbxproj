@@ -301,7 +301,7 @@
 			path = FoundationExtensions;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -313,7 +313,6 @@
 				OBJ_81 /* Cartfile.resolved */,
 				OBJ_82 /* Cartfile */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_55 /* Networking */ = {
@@ -480,7 +479,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_76 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
