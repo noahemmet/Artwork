@@ -10,7 +10,7 @@ let package = Package(
             targets: ["Artwork"]),
     ],
     dependencies: [
-		.package(url: "https://github.com/noahemmet/Common", .branch("master"))
+		.package(url: "https://github.com/noahemmet/Common", .branch("spm"))
     ],
     targets: [
         .target(
