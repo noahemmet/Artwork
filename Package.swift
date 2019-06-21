@@ -1,14 +1,17 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.1
 
 import PackageDescription
 
 let package = Package(
     name: "Artwork",
-    products: [
-        .library(
-            name: "Artwork",
-            targets: ["Artwork"]),
-    ],
+	platforms: [
+		.iOS(.v13)
+	],
+	products: [
+		.library(
+			name: "Artwork",
+			targets: ["Artwork"]),
+	],
     dependencies: [
 		.package(url: "https://github.com/noahemmet/Common", .branch("spm"))
     ],

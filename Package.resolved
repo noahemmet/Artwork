@@ -5,8 +5,8 @@
         "package": "Common",
         "repositoryURL": "https://github.com/noahemmet/Common",
         "state": {
-          "branch": "master",
-          "revision": "e3fc95b4da3ada66b89c024c9e0760b9d3dd861f",
+          "branch": "spm",
+          "revision": "098be1c04f56aab829277649db6372b93477c60b",
           "version": null
         }
       }
